@@ -1,4 +1,4 @@
-package com.odhs.transit
+package com.odhs.gongilproject
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.odhs.transit
+package com.odhs.gongilproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
