@@ -1,4 +1,4 @@
-package com.odhs.gongilproject.model
+package com.odhs.gongilproject.model.forecastSpace
 
 import com.google.gson.annotations.SerializedName
 
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  * @since 2019-06-08
  */
  
-data class ForecastItem(
+data class Item(
     @SerializedName("baseDate") var baseDate: Int,
     @SerializedName("baseTime") var baseTime: String,
     @SerializedName("category") var category: String,
