@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">생활필수앱</string>
+    <string name="app_name">야외점호 예측기</string>
+    <string name="tomorrow">내일은…</string>
+    <string name="outside">야외점호</string>
+    <string name="inside">실내점호</string>
+    <string name="loading">정보를 불러오는 중</string>
+
+    <string name="air_endpoint">http://openapi.airkorea.or.kr</string>
+    <string name="weather_endpoint">http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2</string>
+
+    <string name="air_auth_key">mHZx3FOZedw1eolN0fj8YofDdtE%2FkkxDXyGFA1ATBHxicDorIXiOQjbXr4nQVqrwAJbjZj9ZLWZW6wezu7p7Yg%3D%3D</string>
+    <string name="weather_auth_key">mHZx3FOZedw1eolN0fj8YofDdtE%2FkkxDXyGFA1ATBHxicDorIXiOQjbXr4nQVqrwAJbjZj9ZLWZW6wezu7p7Yg%3D%3D</string>
 </resources>
