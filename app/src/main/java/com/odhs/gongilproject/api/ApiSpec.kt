@@ -4,7 +4,6 @@ import com.odhs.gongilproject.model.forecastSpace.ForecastSpace
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Query
 
 /**
@@ -18,13 +17,13 @@ interface ApiSpec {
 
     @GET("ForecastSpaceData")
     fun forecastSpace(
+        @Query("serviceKey", encoded = true) serviceKey: String,
         @Query("base_date") baseDate: String,
         @Query("base_time") baseTime: String,
         @Query("nx") nx: Int,
         @Query("ny") ny: Int,
         @Query("numOfRows") numOfRows: Int,
         @Query("pageNo") pageNumber: Int,
-        @Query("_type") type: String,
-        @Query("serviceKey") serviceKey: String
+        @Query("_type") type: String
     ): Deferred<Response<ForecastSpace>>
 }

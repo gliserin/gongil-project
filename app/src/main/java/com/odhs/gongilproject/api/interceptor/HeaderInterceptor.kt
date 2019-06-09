@@ -13,6 +13,7 @@ class HeaderInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder()
+            .addHeader("Content-type", "application/json; charset=utf-8")
         return chain.proceed(builder.build())
     }
 }

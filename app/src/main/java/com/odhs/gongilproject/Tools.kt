@@ -16,12 +16,6 @@ import java.util.*
 val Context.apiWeather: ApiSpec
     get() = ApiProvider.provideApi(this)
 
-fun Context.getToday(): String {
-    val format = SimpleDateFormat("yyyyMMdd", Locale.KOREA)
-    val time = Calendar.getInstance()
-    return format.format(time.time)
-}
-
-fun <T> Context.request(call: Deferred<Response<T>>, success: ((response: Response<T>) -> Unit), fail: ((throwable: Throwable) -> Unit)? = null) {
+fun <T> request(call: Deferred<Response<T>>, success: ((response: Response<T>) -> Unit), fail: ((throwable: Throwable) -> Unit)? = null) {
     ApiProvider.request(call, success, fail)
 }

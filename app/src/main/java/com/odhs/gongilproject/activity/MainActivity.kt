@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.odhs.gongilproject.R
+import com.odhs.gongilproject.Util.Util
 import com.odhs.gongilproject.apiWeather
 import com.odhs.gongilproject.data.Value
-import com.odhs.gongilproject.getToday
 import com.odhs.gongilproject.request
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
-import java.lang.StringBuilder
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,14 +25,22 @@ class MainActivity : AppCompatActivity() {
         weatherLoad()
     }
 
-    private fun weatherLoad(): Job {
-        val job = GlobalScope.launch {
+    private fun weatherLoad() {
 
-        }
 
-        val call = apiWeather.forecastSpace(getToday(), "00:00", Value.waDongX, Value.waDongY, 300, 1, "json", getString(R.string.auth_key))
+        val call = apiWeather.forecastSpace(
+            getString(R.string.auth_key),
+            Util.getToday(),
+            "0200",
+            Value.waDongX,
+            Value.waDongY,
+            300,
+            1,
+            "json"
+        )
 
 //        text_main_log.text = getString(R.string.auth_key) + getToday() + "00:00" + Value.waDongX + Value.waDongY + 300 + 1 + "json"
+
 
         request(
             call = call,
@@ -40,23 +48,24 @@ class MainActivity : AppCompatActivity() {
                 Log.d("code", it.code().toString())
                 Log.d("code", it.message())
                 text_main_log.text = it.body()!!.toString()
+
+                Log.d("code", it.raw().request().url().toString())
             },
             fail = {
                 Log.d("code", "fail")
             }
         )
 
-        return job
     }
 
     private fun changeDot() {
         var count = 1
 
         GlobalScope.launch {
-            while(running) {
+            while (running) {
                 yield()
                 runOnUiThread {
-                    when(count) {
+                    when (count) {
                         1 -> {
                             text_main_loading1.visibility = View.VISIBLE
                             text_main_loading2.visibility = View.INVISIBLE
@@ -74,13 +83,12 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     count++
-                    if(count == 4) count = 1
+                    if (count == 4) count = 1
                 }
                 delay(500L)
             }
         }
     }
-
 
 
 }
