@@ -14,7 +14,19 @@
         android:textColor="@color/black"
         android:textSize="12sp" />
 
+    <TextView
+        android:id="@+id/text_main_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:text="정보를 불러오는 데 실패했습니다."
+        tools:visibility="visible" />
+
     <LinearLayout
+        android:id="@+id/layout_main_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -68,12 +80,14 @@
 
 
     <LinearLayout
+        android:id="@+id/layout_main_notice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,6 +112,7 @@
                 android:textSize="40sp" />
 
             <TextView
+                android:id="@+id/text_main_outsidePercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -120,6 +135,7 @@
                 android:textSize="40sp" />
 
             <TextView
+                android:id="@+id/text_main_insidePercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"

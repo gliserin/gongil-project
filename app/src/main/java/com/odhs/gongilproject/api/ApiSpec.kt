@@ -14,7 +14,6 @@ import retrofit2.http.Query
 interface ApiSpec {
 
     // 동네예보조회
-
     @GET("ForecastSpaceData")
     fun forecastSpace(
         @Query("serviceKey", encoded = true) serviceKey: String,
@@ -26,4 +25,5 @@ interface ApiSpec {
         @Query("pageNo") pageNumber: Int,
         @Query("_type") type: String
     ): Deferred<Response<ForecastSpace>>
+
 }

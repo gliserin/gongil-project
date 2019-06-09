@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName
  * @since 2019-06-09
  */
 
-data class ForecastSpace(
-    @SerializedName("response") var response: Response
-)
+data class ForecastSpace(@SerializedName("response") var response: Response) {
+    companion object {
+        const val RAIN_PROBABILITY = "POP"
+    }
+}

@@ -13,16 +13,22 @@ class BaseTime {
     private var baseTime: String
     private var baseDate: String
 
+    private val cal: Calendar = Calendar.getInstance()
+    private val format1 = SimpleDateFormat("HH", Locale.KOREA)
+    private val format2 = SimpleDateFormat("yyyyMMdd", Locale.KOREA)
+
     fun getBaseTime(): String = baseTime
     fun getBaseDate(): String = baseDate
 
-    init {
-        val format1 = SimpleDateFormat("HH", Locale.KOREA)
-        val format2 = SimpleDateFormat("yyyyMMdd", Locale.KOREA)
+    fun getBaseDate(plusDate: Int): String {
+        val cal = this.cal.clone() as Calendar
+        cal.add(Calendar.DATE, plusDate)
+        return format2.format(cal.time)
+    }
 
+    init {
         /* 시간 픽스 작업 */
         val date = Date()
-        val cal = Calendar.getInstance()
         cal.time = date
         cal.add(Calendar.HOUR, 9)
         /* 시간 픽스 작업 */
