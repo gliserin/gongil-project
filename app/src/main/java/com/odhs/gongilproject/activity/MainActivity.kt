@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.odhs.gongilproject.R
-import com.odhs.gongilproject.Util.Util
 import com.odhs.gongilproject.apiWeather
+import com.odhs.gongilproject.data.BaseTime
 import com.odhs.gongilproject.data.Value
 import com.odhs.gongilproject.request
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,24 +23,26 @@ class MainActivity : AppCompatActivity() {
 
         changeDot()
         weatherLoad()
+
     }
 
     private fun weatherLoad() {
 
+        val baseTime = BaseTime()
+
+        Log.d("baseTime", baseTime.getBaseDate())
+        Log.d("baseTime", baseTime.getBaseTime())
 
         val call = apiWeather.forecastSpace(
             getString(R.string.auth_key),
-            Util.getToday(),
-            "0200",
+            baseTime.getBaseDate(),
+            baseTime.getBaseTime(),
             Value.waDongX,
             Value.waDongY,
             300,
             1,
             "json"
         )
-
-//        text_main_log.text = getString(R.string.auth_key) + getToday() + "00:00" + Value.waDongX + Value.waDongY + 300 + 1 + "json"
-
 
         request(
             call = call,
